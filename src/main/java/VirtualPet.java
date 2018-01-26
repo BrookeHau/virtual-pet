@@ -2,20 +2,20 @@
 public class VirtualPet {
 
 	public int hunger;
-	public int thirst = 5;
-	public int boredom = 25;
-//	public int tiredness;
-	public int sleepiness = 55;
-	public int passageOfTime = 0;
-	public int happiness; 
+	public int thirst;
+	public int boredom;
+	public int sleepiness;
+	public int happiness;
+	public int tick;
 
-	public VirtualPet (int hunger, int thirst, int boredom, int sleepiness, int happiness){
+	public VirtualPet(int hunger, int thirst, int boredom, int sleepiness, int happiness) {
 		this.hunger = hunger;
 		this.thirst = thirst;
 		this.boredom = boredom;
-		this.sleepiness = sleepiness; 
-		this.happiness = happiness; 
+		this.sleepiness = sleepiness;
+		this.happiness = happiness;
 	}
+
 	public int getHunger() {
 		return hunger;
 	}
@@ -28,36 +28,47 @@ public class VirtualPet {
 		return boredom;
 	}
 
-//	public int getTiredness() {
-//		return tiredness;
-//	}
-
 	public int getSleepiness() {
 		return sleepiness;
 	}
-	
-//	public int tick(){
-//		passageOfTime +=
-//	}
-	public int getHappiness(){
-		return happiness; 
+
+	public int getHappiness() {
+		return happiness;
 	}
 
 	public void feedPet(int amountToFeedPet) {
 		hunger += amountToFeedPet;
+		thirst += (amountToFeedPet + 1);
+		sleepiness += (amountToFeedPet + 3);
 	}
-	
-	public void waterPet (int amountToWaterPet){
+
+	public void waterPet(int amountToWaterPet) {
 		thirst += amountToWaterPet;
 	}
-	
-	public void letPetSleep (int amountOfSleep){
+
+	public void letPetSleep(int amountOfSleep) {
 		sleepiness -= amountOfSleep;
 	}
-	
-	public void playWithPet (int amountOfPlay){
+
+	public void playWithPet(int amountOfPlay) {
 		boredom -= amountOfPlay;
-		sleepiness += (amountOfPlay/2);
+		sleepiness += (amountOfPlay - 2);
+	}
+
+	public void doNothing(int doNothingAmount) {
+		hunger += doNothingAmount;
+		thirst += doNothingAmount;
+		boredom += (doNothingAmount * 2);
+		sleepiness -= doNothingAmount;
+		happiness -= (doNothingAmount + 5);
+	}
+
+	public void tick() {
+		hunger += 2;
+		thirst += 1;
+		boredom += 3;
+		sleepiness -= 2;
+		happiness += 5;
 	}
 
 }
