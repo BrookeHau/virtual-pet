@@ -36,6 +36,10 @@ public class VirtualPet {
 		return happiness;
 	}
 
+	public int getTick() {
+		return tick;
+	}
+
 	public void feedPet(int amountToFeedPet) {
 		hunger += amountToFeedPet;
 		thirst += (amountToFeedPet + 1);
@@ -66,7 +70,7 @@ public class VirtualPet {
 	public void tick() {
 		hunger += 2;
 		thirst += 1;
-		boredom += 3;
+		boredom -= 3;
 		sleepiness -= 2;
 		happiness += 5;
 	}
