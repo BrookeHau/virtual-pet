@@ -11,7 +11,7 @@ public class VirtualPetTest {
 		int hunger = underTest.getHunger();
 		Assert.assertEquals(10, hunger);
 	}
-	
+
 	@Test
 	public void shouldIncreaseThirstBy15() {
 		VirtualPet underTest = new VirtualPet(5, 5, 5, 5, 5);
@@ -19,7 +19,7 @@ public class VirtualPetTest {
 		int thirst = underTest.getThirst();
 		Assert.assertEquals(20, thirst);
 	}
-	
+
 	@Test
 	public void shouldDecreaseBoredomBy16() {
 		VirtualPet underTest = new VirtualPet(5, 5, 5, 5, 5);
@@ -29,7 +29,7 @@ public class VirtualPetTest {
 		Assert.assertEquals(1, boredom);
 		Assert.assertEquals(7, sleepiness);
 	}
-	
+
 	@Test
 	public void shouldDecreaseSleepinessBy23() {
 		VirtualPet underTest = new VirtualPet(5, 5, 5, 5, 5);
@@ -37,7 +37,13 @@ public class VirtualPetTest {
 		int sleepiness = underTest.getSleepiness();
 		Assert.assertEquals(3, sleepiness);
 	}
-	
-	
+
+	@Test
+	public void shouldIncreaseHungerBy2() {
+		VirtualPet underTest = new VirtualPet(5, 5, 5, 5, 5);
+		underTest.tick();
+		int hunger = underTest.getHunger();
+		Assert.assertEquals(7, hunger);
+	}
 
 }

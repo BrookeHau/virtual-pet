@@ -1,0 +1,1 @@
+The tick will occur after 3 choices have been made, it indicates a new day.
